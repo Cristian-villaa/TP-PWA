@@ -1,0 +1,26 @@
+version: "3.1"
+
+services:
+  db:
+    image: mysql:5.7.27
+    environment:
+      MYSQL_USER: pwauser
+      MYSQL_PASSWORD: pwa123
+      MYSQL_DATABASE: pwa2021
+      MYSQL_ROOT_PASSWORD: root123
+    ports:
+      - "4000:3306"
+    volumes:
+    - ./mysqldata:/var/lib/mysql
+  app:
+    image: yiisoftware/yii2-php:7.1-apache
+    volumes:
+      - ./src/composer/cache:/root/.composer/cache:delegated
+      - ./src/basic:/app:delegated
+    environment: 
+      DDBB_NAME: pwa2021
+      DDBB_USER: pwauser
+      DDBB_HOST: db
+      DDBB_PASSWORD: pwa123
+    ports:
+      - 8000:80
