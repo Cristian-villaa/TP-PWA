@@ -12,6 +12,16 @@ services:
       - "4000:3306"
     volumes:
     - ./mysqldata:/var/lib/mysql
+  myadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER:  pwauser
+      PMA_PASSWORD: pwa123
+    ports:
+      - 8001:80
+  
   app:
     image: yiisoftware/yii2-php:7.1-apache
     volumes:
