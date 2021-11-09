@@ -21,7 +21,7 @@ services:
       PMA_PASSWORD: pwa123
     ports:
       - 8001:80
-  
+
   app:
     image: yiisoftware/yii2-php:7.1-apache
     volumes:
