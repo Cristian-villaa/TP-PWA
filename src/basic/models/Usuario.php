@@ -8,9 +8,9 @@ use Yii;
  * This is the model class for table "usuario".
  *
  * @property int $id
- * @property string $username
+
  * @property string $nombre
- * @property string $apellido
+
  */
 class Usuario extends \yii\db\ActiveRecord
 {
@@ -28,9 +28,8 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'nombre', 'apellido'], 'required'],
-            [['username'], 'string', 'max' => 50],
-            [['nombre', 'apellido'], 'string', 'max' => 100],
+            [['nombre'], 'required'],
+            [['nombre'], 'string', 'max' => 100],
         ];
     }
 
@@ -41,9 +40,8 @@ class Usuario extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'username' => 'Username',
-            'nombre' => 'Nombre',
-            'apellido' => 'Apellido',
+            'nombre' => 'Nombre'
+           
         ];
     }
 }
