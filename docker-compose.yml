@@ -32,5 +32,6 @@ services:
       DDBB_USER: pwauser
       DDBB_HOST: db
       DDBB_PASSWORD: pwa123
+      PRODUCCION: 0
     ports:
       - 8000:80
